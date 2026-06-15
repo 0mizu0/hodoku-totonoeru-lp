@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岩永瑞貴による、職人さんや専門工事会社の現場価値をお客様目線の言葉に整える文章整理サポート。">
+  <title>岩永瑞貴｜現場価値の文章整理</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1f2421;
+      --muted: #616a63;
+      --paper: #fbfaf6;
+      --paper-deep: #efede5;
+      --white: #ffffff;
+      --line: #d8d3c6;
+      --green: #314f45;
+      --rust: #9b5d3f;
+      --steel: #cfd8dc;
+      --shadow: 0 18px 50px rgba(31, 36, 33, 0.08);
+      --heading: "Shippori Mincho", serif;
+      --body: "Zen Kaku Gothic New", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(31, 36, 33, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 36, 33, 0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 70%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--heading);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: 54px;
+      line-height: 1.35;
+    }
+
+    h2 {
+      font-size: 36px;
+      line-height: 1.45;
+    }
+
+    h3 {
+      font-size: 23px;
+      line-height: 1.5;
+    }
+
+    .small {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 250, 246, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      width: min(1160px, calc(100% - 48px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-family: var(--heading);
+      font-size: 18px;
+      line-height: 1;
+      background: var(--white);
+    }
+
+    .brand-title {
+      font-family: var(--heading);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1.4;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button.secondary:hover {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(31, 36, 33, 0.88), rgba(31, 36, 33, 0.62) 45%, rgba(31, 36, 33, 0.18)),
+        linear-gradient(135deg, #2b2f2b 0%, #495a51 42%, #d8d3c6 42%, #d8d3c6 43%, #8f6a52 43%, #8f6a52 100%);
+      color: var(--white);
+    }
+
+    .hero::before {
+      content: "仮画像";
+      position: absolute;
+      right: 7vw;
+      top: 140px;
+      width: min(420px, 38vw);
+      aspect-ratio: 4 / 5;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      color: rgba(255, 255, 255, 0.74);
+      font-family: var(--heading);
+      font-size: 28px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0 20%, transparent 20% 40%, rgba(255, 255, 255, 0.10) 40% 60%, transparent 60% 100%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 22px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero::after {
+      content: "実際の現場写真や道具写真に差し替え予定";
+      position: absolute;
+      right: 7vw;
+      bottom: 64px;
+      width: min(420px, 38vw);
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 112px 0 96px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 38px;
+    }
+
+    .hero-actions .button {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .hero-actions .button.secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.58);
+    }
+
+    .section {
+      padding: 104px 0;
+    }
+
+    .section.compact {
+      padding: 76px 0;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr);
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 52px;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--rust);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lead {
+      color: var(--muted);
+    }
+
+    .intro-band {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .intro-note {
+      border-left: 3px solid var(--green);
+      padding: 24px 0 24px 28px;
+      color: var(--muted);
+    }
+
+    .support-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .support-card {
+      min-height: 270px;
+      padding: 30px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .support-card .num {
+      color: var(--rust);
+      font-family: var(--heading);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .support-card p {
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .quiet-list {
+      display: grid;
+      gap: 18px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quiet-list li {
+      padding: 20px 22px;
+      border-left: 3px solid var(--steel);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .sample {
+      background: var(--paper-deep);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .notice {
+      display: inline-flex;
+      max-width: 100%;
+      margin-top: 20px;
+      padding: 10px 14px;
+      border: 1px solid rgba(155, 93, 63, 0.35);
+      color: #70442f;
+      background: rgba(255, 255, 255, 0.58);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .sample-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .sample-main,
+    .sample-side {
+      background: var(--white);
+    }
+
+    .sample-main {
+      padding: 44px;
+    }
+
+    .sample-side {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .before-after {
+      display: grid;
+      gap: 28px;
+      margin-top: 34px;
+    }
+
+    .text-block {
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: #f8f7f2;
+    }
+
+    .text-block.after {
+      background: #ffffff;
+      border-color: rgba(49, 79, 69, 0.32);
+    }
+
+    .block-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .block-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .sample-points {
+      padding: 34px;
+      background: var(--green);
+      color: var(--white);
+      flex: 1;
+    }
+
+    .sample-points ul {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 18px;
+    }
+
+    .sample-points li {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .sample-points b {
+      color: rgba(255, 255, 255, 0.54);
+      font-family: var(--heading);
+      font-weight: 600;
+    }
+
+    .placeholder {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(31, 36, 33, 0.08) 0 25%, transparent 25% 50%, rgba(155, 93, 63, 0.12) 50% 75%, transparent 75%),
+        repeating-linear-gradient(0deg, rgba(31, 36, 33, 0.08) 0 1px, transparent 1px 24px),
+        var(--paper);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .profile-card {
+      padding: 34px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-mark {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      display: grid;
+      align-content: end;
+      padding: 28px;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(31, 36, 33, 0.08), rgba(31, 36, 33, 0.74)),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 16px),
+        var(--green);
+    }
+
+    .profile-mark span {
+      display: block;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .profile-copy {
+      display: grid;
+      gap: 22px;
+      color: var(--muted);
+    }
+
+    .flow-price {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+    }
+
+    .flow-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.86fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .steps {
+      display: grid;
+      gap: 28px;
+      margin-top: 34px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 20px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .step-num {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      color: var(--rust);
+      font-family: var(--heading);
+      font-size: 20px;
+      background: var(--paper);
+    }
+
+    .price-box {
+      padding: 34px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .price-list {
+      display: grid;
+      gap: 1px;
+      margin: 28px 0 18px;
+      padding: 0;
+      background: var(--line);
+      border: 1px solid var(--line);
+      list-style: none;
+    }
+
+    .price-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      padding: 18px 20px;
+      background: var(--white);
+    }
+
+    .price-list span:last-child {
+      color: var(--green);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 20px 24px;
+      color: var(--ink);
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      padding: 0 24px 22px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .contact {
+      padding: 104px 0;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(31, 36, 33, 0.96), rgba(49, 79, 69, 0.94)),
+        repeating-linear-gradient(90deg, transparent 0 80px, rgba(255, 255, 255, 0.06) 80px 81px);
+    }
+
+    .contact-inner {
+      width: min(760px, calc(100% - 48px));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact p {
+      margin-top: 24px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .contact .label {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .contact .button {
+      margin-top: 36px;
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--ink);
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-name {
+      color: var(--ink);
+      font-family: var(--heading);
+      font-weight: 600;
+    }
+
+    @media (max-width: 980px) {
+      h1 {
+        font-size: 46px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 690px;
+      }
+
+      .hero::before,
+      .hero::after {
+        opacity: 0.26;
+        right: -80px;
+      }
+
+      .section-head,
+      .intro-grid,
+      .split,
+      .sample-layout,
+      .profile-grid,
+      .flow-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .support-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 32px;
+        line-height: 1.42;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 22px;
+      }
+
+      .header-inner,
+      .container,
+      .hero-inner,
+      .footer-inner,
+      .contact-inner {
+        width: min(100% - 32px, 1160px);
+      }
+
+      .brand-title {
+        font-size: 16px;
+      }
+
+      .brand-sub {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero-inner {
+        padding: 88px 0 72px;
+      }
+
+      .hero::before {
+        width: 260px;
+        top: auto;
+        bottom: 42px;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .section,
+      .contact {
+        padding: 76px 0;
+      }
+
+      .section.compact {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        gap: 24px;
+        margin-bottom: 36px;
+      }
+
+      .support-list {
+        grid-template-columns: 1fr;
+      }
+
+      .support-card {
+        min-height: auto;
+        padding: 26px;
+      }
+
+      .sample-main,
+      .sample-points,
+      .profile-card,
+      .price-box {
+        padding: 26px;
+      }
+
+      .price-list li {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="ページ上部へ">
+        <span class="brand-mark">岩</span>
+        <span class="brand-title">
+          岩永瑞貴
+          <span class="brand-sub">現場価値の文章整理</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="#support">できること</a>
+        <a href="#sample">文章サンプル</a>
+        <a href="#flow">相談の流れ</a>
+        <a class="button" href="#contact">メールで相談</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="現場価値の文章整理">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">現場のこだわりを、問い合わせ前のお客様に伝わる形へ</span>
+          <h1>職人さんの判断やこだわりを、お客様目線の言葉に整えます。</h1>
+          <p class="hero-text">
+            施工事例文、HP内案内文、Instagram・Google投稿、問い合わせ導線の整理まで。
+            専門工事会社や職人さんが持つ技術と判断を、必要以上に大きく見せず、
+            依頼前のお客様が安心して読める文章へ整える外部サポートです。
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">メールで小さく相談する</a>
+            <a class="button secondary" href="#sample">サンプルを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-band section compact">
+      <div class="container intro-grid">
+        <div>
+          <span class="label">このページについて</span>
+          <h2>売り込みではなく、まず仕事内容を静かに確認できる場所として。</h2>
+        </div>
+        <p class="intro-note">
+          「何を頼めるのか」「どんな距離感で相談できるのか」が伝わるように、
+          文章整理を入口にしたサポート内容をまとめています。
+          大がかりな制作会社ではなく、必要なところから一緒に整える外部の相談先です。
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="support">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">お手伝いできること</span>
+            <h2>現場の言葉を、お客様に届く順番へ並べ直します。</h2>
+          </div>
+          <p class="lead">
+            専門用語を薄めるだけではなく、職人さんが現場で見ている判断の理由を、
+            初めて読む方にも伝わる流れに整えます。
+          </p>
+        </div>
+
+        <div class="support-list">
+          <article class="support-card">
+            <span class="num">01</span>
+            <div>
+              <h3>施工事例文の整理</h3>
+              <p class="small">
+                写真だけでは伝わりにくい工夫、下地処理、納まり、使い勝手への配慮を、
+                事例として読みやすく整理します。
+              </p>
+            </div>
+          </article>
+
+          <article class="support-card">
+            <span class="num">02</span>
+            <div>
+              <h3>HP内案内文の見直し</h3>
+              <p class="small">
+                サービス説明、よくある質問、問い合わせ前の案内などを、
+                お客様が迷わず読み進められる言葉に調整します。
+              </p>
+            </div>
+          </article>
+
+          <article class="support-card">
+            <span class="num">03</span>
+            <div>
+              <h3>投稿文の整理</h3>
+              <p class="small">
+                InstagramやGoogle投稿で、日々の現場の積み重ねが伝わるように、
+                短い文章の見せ方を整えます。
+              </p>
+            </div>
+          </article>
+
+          <article class="support-card">
+            <span class="num">04</span>
+            <div>
+              <h3>問い合わせ導線の整理</h3>
+              <p class="small">
+                どこから相談すればよいか、何を送ればよいかを明確にし、
+                お客様も現場側も負担の少ない流れをつくります。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container split">
+        <div>
+          <span class="label">大切にしていること</span>
+          <h2>専門性は残しながら、読む人の不安をほどく文章へ。</h2>
+        </div>
+        <div>
+          <p class="lead">
+            現場の価値は、派手な言い回しよりも「なぜそうしたのか」が伝わることで信頼につながります。
+            文章だけで完結させず、写真の順番、見出し、問い合わせ前の説明まで含めて整えます。
+          </p>
+          <ul class="quiet-list">
+            <li>職人さんや専門工事会社の技術、判断、配慮をお客様目線の言葉に変える</li>
+            <li>説明が足りない部分を補い、言いすぎに見える表現は控えめに整える</li>
+            <li>文章整理を入口に、情報整理や小さな業務改善も必要に応じて相談できる</li>
+            <li>必要に応じたAI活用・導入の相談も、現場の負担が減る範囲で扱う</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sample section" id="sample">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">文章サンプル</span>
+            <h2>施工事例文を、読み手に伝わる流れへ整える例。</h2>
+            <p class="notice">※以下は説明用に作成した架空の施工事例サンプルです。</p>
+          </div>
+          <p class="lead">
+            実績紹介ではなく、文章整理の方向性を確認するためのサンプルです。
+            具体的すぎる数値や実在の声のように見える表現は入れていません。
+          </p>
+        </div>
+
+        <div class="sample-layout">
+          <div class="sample-main">
+            <h3>店舗の使い勝手に合わせた、カウンターまわりの改修</h3>
+            <div class="before-after">
+              <div class="text-block">
+                <span class="block-label">整理前の文章</span>
+                <p>
+                  店舗のレジカウンターを改修しました。既存のカウンターを調整し、
+                  天板や収納を新しくしました。使いやすいカウンターになりました。
+                </p>
+              </div>
+
+              <div class="text-block after">
+                <span class="block-label">整理後の文章</span>
+                <p>
+                  お会計まわりで人の動きが重なりやすく、作業中の物の置き場も不足しがちだったため、
+                  カウンターまわりの使い勝手を見直しました。
+                </p>
+                <p>
+                  現場では、スタッフの動線とお客様から見える位置を確認しながら、
+                  収納の取り方や作業面の広さ、手元が見えにくい立ち上がりの納まりを調整。
+                  店内の雰囲気になじむ素材を選び、日々の作業が自然につながる形に整えています。
+                </p>
+                <p>
+                  見た目だけを新しくするのではなく、働く人の動きとお客様の安心感が両立するように、
+                  細かな使い勝手まで考えた改修です。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="sample-side" aria-label="文章整理の視点">
+            <div class="sample-points">
+              <h3>整える視点</h3>
+              <ul>
+                <li><b>01</b><span>工事内容だけでなく、依頼の背景から読めるようにする</span></li>
+                <li><b>02</b><span>専門的な判断を、読み手が価値として受け取りやすい言葉へ変える</span></li>
+                <li><b>03</b><span>写真で伝わりにくい配慮や作業意図を補う</span></li>
+                <li><b>04</b><span>大げさな実績表現ではなく、安心して相談できる温度に整える</span></li>
+              </ul>
+            </div>
+            <div class="placeholder">
+              <p>
+                仮画像エリア<br>
+                <span class="small">実際の施工写真や作業中の手元写真に差し替えて使用します。</span>
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container profile-grid">
+        <div class="profile-card">
+          <div class="profile-mark">
+            <h3>岩永瑞貴</h3>
+            <span class="small">現場価値の文章整理</span>
+          </div>
+        </div>
+        <div>
+          <span class="label">プロフィール</span>
+          <h2>現場側の言葉と、依頼前のお客様の理解の間をつなぎます。</h2>
+          <div class="profile-copy">
+            <p>
+              職人さんや専門工事会社が持つ技術、判断、細かな配慮は、
+              現場を知らないお客様には伝わりにくいことがあります。
+              その「伝わりにくさ」を、文章と情報の順番から整えるサポートをしています。
+            </p>
+            <p>
+              代わりに大きく見せるのではなく、すでにある価値がきちんと届くように。
+              施工事例文やHP内の案内文を入口に、必要に応じて投稿文、問い合わせ導線、
+              小さな業務整理まで一緒に見直します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow-price section" id="flow">
+      <div class="container flow-layout">
+        <div>
+          <span class="label">相談の流れ</span>
+          <h2>まずは、手元にある文章や写真からで大丈夫です。</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div>
+                <h3>メールで状況共有</h3>
+                <p class="small">整理したいページ、施工事例、投稿文などを共有いただき、困っている点を確認します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div>
+                <h3>素材確認と進め方の相談</h3>
+                <p class="small">写真やメモの量、公開先、更新頻度に合わせて、無理のない範囲を決めます。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div>
+                <h3>文章整理・確認</h3>
+                <p class="small">読み手に伝わる構成に整えたうえで、現場側のニュアンスがずれていないか確認します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div>
+                <h3>納品・必要に応じた継続相談</h3>
+                <p class="small">単発の文章整理で終えることも、更新や業務整理へ広げることもできます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="price-box" aria-label="料金の目安">
+          <span class="label">料金の目安</span>
+          <h2>小さく始められる形でご相談ください。</h2>
+          <ul class="price-list">
+            <li><span>施工事例文の整理</span><span>1本から相談可能</span></li>
+            <li><span>施工事例3本の文章整理</span><span>33,000円〜</span></li>
+            <li><span>継続更新・業務整理</span><span>内容により相談</span></li>
+          </ul>
+          <p class="small lead">
+            内容量、写真やメモの有無、公開先の数によって調整します。
+            まずは必要な範囲だけを確認し、無理に継続契約へ進める前提ではありません。
+          </p>
+
+          <div class="faq" aria-label="よくある質問">
+            <details open>
+              <summary>現場が忙しく、素材をまとめる時間がありません。</summary>
+              <p class="small">
+                箇条書きのメモや写真だけでも始められます。足りない情報は、確認しやすい質問にして整理します。
+              </p>
+            </details>
+            <details>
+              <summary>専門的な工事内容でも相談できますか。</summary>
+              <p class="small">
+                可能です。分からない部分は確認しながら、専門性を崩さずにお客様が理解しやすい文章へ整えます。
+              </p>
+            </details>
+            <details>
+              <summary>AIツールの相談もできますか。</summary>
+              <p class="small">
+                必要に応じたAI活用・導入の相談として扱います。AIを前面に出すのではなく、現場の負担が減る使い方を一緒に考えます。
+              </p>
+            </details>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <span class="label">お問い合わせ</span>
+        <h2>まずは、整理したい文章やページをメールでお送りください。</h2>
+        <p>
+          「どこから手をつければよいか分からない」という段階でも構いません。
+          施工事例1本、HPの一部分、投稿文の見直しなど、小さな相談からお受けします。
+        </p>
+        <!-- 公開前に、宛先メールアドレスを実際の連絡先へ差し替えてください。 -->
+        <a class="button" href="mailto:mizuki.iwanaga@example.com?subject=%E7%8F%BE%E5%A0%B4%E4%BE%A1%E5%80%A4%E3%81%AE%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-name">岩永瑞貴｜現場価値の文章整理</span>
+        <p class="small">職人さんや専門工事会社の価値を、お客様に伝わる文章へ。</p>
+      </div>
+      <p class="small">&copy; 岩永瑞貴</p>
+    </div>
+  </footer>
+</body>
+</html>
