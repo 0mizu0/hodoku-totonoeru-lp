@@ -1,4 +1,4 @@
-# 岩永瑞貴｜現場価値の文章整理 LP
+# ほどく、整える。｜岩永瑞貴
 
 GitHub Pagesでそのまま公開できる静的LPです。
 
@@ -19,7 +19,7 @@ GitHub Pagesでそのまま公開できる静的LPです。
 
 ## 公開前に確認すること
 
-1. `index.html` 内の `mailto:mizuki.iwanaga@example.com` を実際の問い合わせ先メールアドレスに変更します。
+1. `index.html` 内の問い合わせ先が `m.iwanaga.design@outlook.jp` になっていることを確認します。
 2. ブラウザで `index.html` を開き、表示内容とリンク先を確認します。
 3. 公開してよい情報だけが含まれているか確認します。
 
