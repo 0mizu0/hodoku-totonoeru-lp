@@ -1,1161 +1,471 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岩永瑞貴による、職人さんや専門工事会社の現場価値をお客様目線の言葉に整える文章整理サポート。">
-  <title>岩永瑞貴｜現場価値の文章整理</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink: #1f2421;
-      --muted: #616a63;
-      --paper: #fbfaf6;
-      --paper-deep: #efede5;
-      --white: #ffffff;
-      --line: #d8d3c6;
-      --green: #314f45;
-      --rust: #9b5d3f;
-      --steel: #cfd8dc;
-      --shadow: 0 18px 50px rgba(31, 36, 33, 0.08);
-      --heading: "Shippori Mincho", serif;
-      --body: "Zen Kaku Gothic New", sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--body);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(31, 36, 33, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(31, 36, 33, 0.025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 70%);
-      z-index: -1;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: var(--heading);
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
-    h1 {
-      font-size: 54px;
-      line-height: 1.35;
-    }
-
-    h2 {
-      font-size: 36px;
-      line-height: 1.45;
-    }
-
-    h3 {
-      font-size: 23px;
-      line-height: 1.5;
-    }
-
-    .small {
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(251, 250, 246, 0.92);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
-    }
-
-    .header-inner {
-      width: min(1160px, calc(100% - 48px));
-      min-height: 76px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      font-family: var(--heading);
-      font-size: 18px;
-      line-height: 1;
-      background: var(--white);
-    }
-
-    .brand-title {
-      font-family: var(--heading);
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.4;
-      white-space: nowrap;
-    }
-
-    .brand-sub {
-      display: block;
-      margin-top: 2px;
-      color: var(--muted);
-      font-family: var(--body);
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .nav a:hover {
-      color: var(--ink);
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 22px;
-      border: 1px solid var(--ink);
-      background: var(--ink);
-      color: var(--white);
-      font-weight: 700;
-      line-height: 1.4;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      background: var(--green);
-      border-color: var(--green);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .button.secondary:hover {
-      background: var(--ink);
-      color: var(--white);
-      border-color: var(--ink);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 760px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(31, 36, 33, 0.88), rgba(31, 36, 33, 0.62) 45%, rgba(31, 36, 33, 0.18)),
-        linear-gradient(135deg, #2b2f2b 0%, #495a51 42%, #d8d3c6 42%, #d8d3c6 43%, #8f6a52 43%, #8f6a52 100%);
-      color: var(--white);
-    }
-
-    .hero::before {
-      content: "仮画像";
-      position: absolute;
-      right: 7vw;
-      top: 140px;
-      width: min(420px, 38vw);
-      aspect-ratio: 4 / 5;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.34);
-      color: rgba(255, 255, 255, 0.74);
-      font-family: var(--heading);
-      font-size: 28px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0 20%, transparent 20% 40%, rgba(255, 255, 255, 0.10) 40% 60%, transparent 60% 100%),
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 22px);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
-    }
-
-    .hero::after {
-      content: "実際の現場写真や道具写真に差し替え予定";
-      position: absolute;
-      right: 7vw;
-      bottom: 64px;
-      width: min(420px, 38vw);
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .hero-inner {
-      width: min(1160px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 112px 0 96px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-copy {
-      max-width: 700px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 22px;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.6;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 42px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    .hero-text {
-      max-width: 620px;
-      margin-top: 28px;
-      color: rgba(255, 255, 255, 0.84);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 38px;
-    }
-
-    .hero-actions .button {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    .hero-actions .button.secondary {
-      background: transparent;
-      color: var(--white);
-      border-color: rgba(255, 255, 255, 0.58);
-    }
-
-    .section {
-      padding: 104px 0;
-    }
-
-    .section.compact {
-      padding: 76px 0;
-    }
-
-    .container {
-      width: min(1160px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr);
-      gap: 64px;
-      align-items: end;
-      margin-bottom: 52px;
-    }
-
-    .label {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--rust);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .lead {
-      color: var(--muted);
-    }
-
-    .intro-band {
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .intro-note {
-      border-left: 3px solid var(--green);
-      padding: 24px 0 24px 28px;
-      color: var(--muted);
-    }
-
-    .support-list {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .support-card {
-      min-height: 270px;
-      padding: 30px;
-      background: var(--white);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 28px;
-    }
-
-    .support-card .num {
-      color: var(--rust);
-      font-family: var(--heading);
-      font-size: 34px;
-      line-height: 1;
-    }
-
-    .support-card p {
-      color: var(--muted);
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 64px;
-      align-items: start;
-    }
-
-    .quiet-list {
-      display: grid;
-      gap: 18px;
-      margin: 28px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .quiet-list li {
-      padding: 20px 22px;
-      border-left: 3px solid var(--steel);
-      background: rgba(255, 255, 255, 0.72);
-    }
-
-    .sample {
-      background: var(--paper-deep);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .notice {
-      display: inline-flex;
-      max-width: 100%;
-      margin-top: 20px;
-      padding: 10px 14px;
-      border: 1px solid rgba(155, 93, 63, 0.35);
-      color: #70442f;
-      background: rgba(255, 255, 255, 0.58);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .sample-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .sample-main,
-    .sample-side {
-      background: var(--white);
-    }
-
-    .sample-main {
-      padding: 44px;
-    }
-
-    .sample-side {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .before-after {
-      display: grid;
-      gap: 28px;
-      margin-top: 34px;
-    }
-
-    .text-block {
-      padding: 26px;
-      border: 1px solid var(--line);
-      background: #f8f7f2;
-    }
-
-    .text-block.after {
-      background: #ffffff;
-      border-color: rgba(49, 79, 69, 0.32);
-    }
-
-    .block-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .block-label::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      background: var(--line);
-    }
-
-    .sample-points {
-      padding: 34px;
-      background: var(--green);
-      color: var(--white);
-      flex: 1;
-    }
-
-    .sample-points ul {
-      margin: 20px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 18px;
-    }
-
-    .sample-points li {
-      display: grid;
-      grid-template-columns: 32px 1fr;
-      gap: 14px;
-      color: rgba(255, 255, 255, 0.84);
-    }
-
-    .sample-points b {
-      color: rgba(255, 255, 255, 0.54);
-      font-family: var(--heading);
-      font-weight: 600;
-    }
-
-    .placeholder {
-      min-height: 260px;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      color: var(--muted);
-      text-align: center;
-      background:
-        linear-gradient(135deg, rgba(31, 36, 33, 0.08) 0 25%, transparent 25% 50%, rgba(155, 93, 63, 0.12) 50% 75%, transparent 75%),
-        repeating-linear-gradient(0deg, rgba(31, 36, 33, 0.08) 0 1px, transparent 1px 24px),
-        var(--paper);
-    }
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 72px;
-      align-items: center;
-    }
-
-    .profile-card {
-      padding: 34px;
-      border: 1px solid var(--line);
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .profile-mark {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      display: grid;
-      align-content: end;
-      padding: 28px;
-      color: var(--white);
-      background:
-        linear-gradient(180deg, rgba(31, 36, 33, 0.08), rgba(31, 36, 33, 0.74)),
-        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 16px),
-        var(--green);
-    }
-
-    .profile-mark span {
-      display: block;
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .profile-copy {
-      display: grid;
-      gap: 22px;
-      color: var(--muted);
-    }
-
-    .flow-price {
-      background: var(--white);
-      border-top: 1px solid var(--line);
-    }
-
-    .flow-layout {
-      display: grid;
-      grid-template-columns: 1fr 0.86fr;
-      gap: 70px;
-      align-items: start;
-    }
-
-    .steps {
-      display: grid;
-      gap: 28px;
-      margin-top: 34px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 20px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .step:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .step-num {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      color: var(--rust);
-      font-family: var(--heading);
-      font-size: 20px;
-      background: var(--paper);
-    }
-
-    .price-box {
-      padding: 34px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-    }
-
-    .price-list {
-      display: grid;
-      gap: 1px;
-      margin: 28px 0 18px;
-      padding: 0;
-      background: var(--line);
-      border: 1px solid var(--line);
-      list-style: none;
-    }
-
-    .price-list li {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      padding: 18px 20px;
-      background: var(--white);
-    }
-
-    .price-list span:last-child {
-      color: var(--green);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .faq {
-      display: grid;
-      gap: 12px;
-      margin-top: 34px;
-    }
-
-    details {
-      border: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    summary {
-      cursor: pointer;
-      padding: 20px 24px;
-      color: var(--ink);
-      font-weight: 700;
-      list-style: none;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details p {
-      padding: 0 24px 22px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-    }
-
-    .contact {
-      padding: 104px 0;
-      color: var(--white);
-      background:
-        linear-gradient(90deg, rgba(31, 36, 33, 0.96), rgba(49, 79, 69, 0.94)),
-        repeating-linear-gradient(90deg, transparent 0 80px, rgba(255, 255, 255, 0.06) 80px 81px);
-    }
-
-    .contact-inner {
-      width: min(760px, calc(100% - 48px));
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact p {
-      margin-top: 24px;
-      color: rgba(255, 255, 255, 0.78);
-    }
-
-    .contact .label {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .contact .button {
-      margin-top: 36px;
-      background: var(--white);
-      border-color: var(--white);
-      color: var(--ink);
-    }
-
-    .site-footer {
-      padding: 38px 0;
-      background: var(--white);
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      width: min(1160px, calc(100% - 48px));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .footer-name {
-      color: var(--ink);
-      font-family: var(--heading);
-      font-weight: 600;
-    }
-
-    @media (max-width: 980px) {
-      h1 {
-        font-size: 46px;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .hero {
-        min-height: 690px;
-      }
-
-      .hero::before,
-      .hero::after {
-        opacity: 0.26;
-        right: -80px;
-      }
-
-      .section-head,
-      .intro-grid,
-      .split,
-      .sample-layout,
-      .profile-grid,
-      .flow-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .support-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 32px;
-        line-height: 1.42;
-      }
-
-      h2 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 22px;
-      }
-
-      .header-inner,
-      .container,
-      .hero-inner,
-      .footer-inner,
-      .contact-inner {
-        width: min(100% - 32px, 1160px);
-      }
-
-      .brand-title {
-        font-size: 16px;
-      }
-
-      .brand-sub {
-        font-size: 11px;
-      }
-
-      .hero {
-        min-height: 650px;
-      }
-
-      .hero-inner {
-        padding: 88px 0 72px;
-      }
-
-      .hero::before {
-        width: 260px;
-        top: auto;
-        bottom: 42px;
-      }
-
-      .hero::after {
-        display: none;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .section,
-      .contact {
-        padding: 76px 0;
-      }
-
-      .section.compact {
-        padding: 58px 0;
-      }
-
-      .section-head {
-        gap: 24px;
-        margin-bottom: 36px;
-      }
-
-      .support-list {
-        grid-template-columns: 1fr;
-      }
-
-      .support-card {
-        min-height: auto;
-        padding: 26px;
-      }
-
-      .sample-main,
-      .sample-points,
-      .profile-card,
-      .price-box {
-        padding: 26px;
-      }
-
-      .price-list li {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-  </style>
+<!DOCTYPE html><html class="scroll-smooth" lang="ja" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ほどく、整える。｜岩永瑞貴</title>
+<meta content="強み、こだわり、判断、違和感、日々の業務の詰まりを拾い上げ、言葉・導線・仕組みとして使える形に整えます。" name="description">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Noto+Serif+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#2b1519",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#566678",
+                        "tertiary-container": "#6e5155",
+                        "tertiary": "#553a3e",
+                        "primary": "#334537",
+                        "on-secondary-fixed-variant": "#384859",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#e3bdc2",
+                        "on-primary-container": "#c0d5c2",
+                        "on-primary-fixed": "#0e1f13",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-tertiary-container": "#ecc6ca",
+                        "on-primary-fixed-variant": "#394b3d",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "secondary": "#506072",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d3e8d5",
+                        "surface-container-high": "#eae7e7",
+                        "secondary-fixed-dim": "#b7c8dd",
+                        "primary-container": "#4a5d4e",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "surface-variant": "#e4e2e1",
+                        "primary-fixed-dim": "#b7ccb9",
+                        "on-tertiary-fixed-variant": "#5b4043",
+                        "outline-variant": "#c3c8c1",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface-variant": "#434843",
+                        "secondary-fixed": "#d3e4fa",
+                        "surface": "#fcf9f8",
+                        "tertiary-fixed": "#ffd9de",
+                        "outline": "#737872",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-primary": "#b7ccb9",
+                        "on-secondary-fixed": "#0c1d2c",
+                        "surface-container-highest": "#e4e2e1",
+                        "secondary-container": "#d3e4fa",
+                        "surface-container": "#f0eded",
+                        "on-surface": "#1b1c1c",
+                        "on-background": "#1b1c1c",
+                        "surface-tint": "#506354",
+                        "on-error-container": "#93000a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "stack-sm": "16px",
+                        "stack-md": "32px",
+                        "gutter": "32px",
+                        "stack-lg": "64px",
+                        "container-max-width": "960px",
+                        "unit": "8px",
+                        "section-padding": "120px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Noto Serif JP", "serif"],
+                        "headline-md": ["Noto Serif JP", "serif"],
+                        "label-sm": ["IBM Plex Sans", "sans-serif"],
+                        "caption": ["IBM Plex Sans", "sans-serif"],
+                        "display": ["Noto Serif JP", "serif"],
+                        "body-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["Noto Serif JP", "serif"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "caption": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.7", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.8", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: 'IBM Plex Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+        .note-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .note-list li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 0.75em;
+        }
+        .note-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: theme('colors.outline');
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+    </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#top" aria-label="ページ上部へ">
-        <span class="brand-mark">岩</span>
-        <span class="brand-title">
-          岩永瑞貴
-          <span class="brand-sub">現場価値の文章整理</span>
-        </span>
-      </a>
-      <nav class="nav" aria-label="主要ナビゲーション">
-        <a href="#support">できること</a>
-        <a href="#sample">文章サンプル</a>
-        <a href="#flow">相談の流れ</a>
-        <a class="button" href="#contact">メールで相談</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-label="現場価値の文章整理">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow">現場のこだわりを、問い合わせ前のお客様に伝わる形へ</span>
-          <h1>職人さんの判断やこだわりを、お客様目線の言葉に整えます。</h1>
-          <p class="hero-text">
-            施工事例文、HP内案内文、Instagram・Google投稿、問い合わせ導線の整理まで。
-            専門工事会社や職人さんが持つ技術と判断を、必要以上に大きく見せず、
-            依頼前のお客様が安心して読める文章へ整える外部サポートです。
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="#contact">メールで小さく相談する</a>
-            <a class="button secondary" href="#sample">サンプルを見る</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="intro-band section compact">
-      <div class="container intro-grid">
-        <div>
-          <span class="label">このページについて</span>
-          <h2>売り込みではなく、まず仕事内容を静かに確認できる場所として。</h2>
-        </div>
-        <p class="intro-note">
-          「何を頼めるのか」「どんな距離感で相談できるのか」が伝わるように、
-          文章整理を入口にしたサポート内容をまとめています。
-          大がかりな制作会社ではなく、必要なところから一緒に整える外部の相談先です。
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="support">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="label">お手伝いできること</span>
-            <h2>現場の言葉を、お客様に届く順番へ並べ直します。</h2>
-          </div>
-          <p class="lead">
-            専門用語を薄めるだけではなく、職人さんが現場で見ている判断の理由を、
-            初めて読む方にも伝わる流れに整えます。
-          </p>
-        </div>
-
-        <div class="support-list">
-          <article class="support-card">
-            <span class="num">01</span>
-            <div>
-              <h3>施工事例文の整理</h3>
-              <p class="small">
-                写真だけでは伝わりにくい工夫、下地処理、納まり、使い勝手への配慮を、
-                事例として読みやすく整理します。
-              </p>
-            </div>
-          </article>
-
-          <article class="support-card">
-            <span class="num">02</span>
-            <div>
-              <h3>HP内案内文の見直し</h3>
-              <p class="small">
-                サービス説明、よくある質問、問い合わせ前の案内などを、
-                お客様が迷わず読み進められる言葉に調整します。
-              </p>
-            </div>
-          </article>
-
-          <article class="support-card">
-            <span class="num">03</span>
-            <div>
-              <h3>投稿文の整理</h3>
-              <p class="small">
-                InstagramやGoogle投稿で、日々の現場の積み重ねが伝わるように、
-                短い文章の見せ方を整えます。
-              </p>
-            </div>
-          </article>
-
-          <article class="support-card">
-            <span class="num">04</span>
-            <div>
-              <h3>問い合わせ導線の整理</h3>
-              <p class="small">
-                どこから相談すればよいか、何を送ればよいかを明確にし、
-                お客様も現場側も負担の少ない流れをつくります。
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section compact">
-      <div class="container split">
-        <div>
-          <span class="label">大切にしていること</span>
-          <h2>専門性は残しながら、読む人の不安をほどく文章へ。</h2>
-        </div>
-        <div>
-          <p class="lead">
-            現場の価値は、派手な言い回しよりも「なぜそうしたのか」が伝わることで信頼につながります。
-            文章だけで完結させず、写真の順番、見出し、問い合わせ前の説明まで含めて整えます。
-          </p>
-          <ul class="quiet-list">
-            <li>職人さんや専門工事会社の技術、判断、配慮をお客様目線の言葉に変える</li>
-            <li>説明が足りない部分を補い、言いすぎに見える表現は控えめに整える</li>
-            <li>文章整理を入口に、情報整理や小さな業務改善も必要に応じて相談できる</li>
-            <li>必要に応じたAI活用・導入の相談も、現場の負担が減る範囲で扱う</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="sample section" id="sample">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="label">文章サンプル</span>
-            <h2>施工事例文を、読み手に伝わる流れへ整える例。</h2>
-            <p class="notice">※以下は説明用に作成した架空の施工事例サンプルです。</p>
-          </div>
-          <p class="lead">
-            実績紹介ではなく、文章整理の方向性を確認するためのサンプルです。
-            具体的すぎる数値や実在の声のように見える表現は入れていません。
-          </p>
-        </div>
-
-        <div class="sample-layout">
-          <div class="sample-main">
-            <h3>店舗の使い勝手に合わせた、カウンターまわりの改修</h3>
-            <div class="before-after">
-              <div class="text-block">
-                <span class="block-label">整理前の文章</span>
-                <p>
-                  店舗のレジカウンターを改修しました。既存のカウンターを調整し、
-                  天板や収納を新しくしました。使いやすいカウンターになりました。
+<body class="bg-surface text-on-surface">
+<nav class="bg-surface border-b border-outline-variant flex justify-between items-center w-full px-gutter py-stack-sm max-w-container-max-width mx-auto sticky top-0 z-50">
+<a class="font-headline-md text-headline-md text-primary hover:opacity-80 transition-opacity" href="#">
+            ほどく、整える。
+        </a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors flex items-center gap-2" href="#contact">
+<span class="">お問い合わせ</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</nav>
+<main class="max-w-container-max-width mx-auto px-gutter pb-section-padding">
+<!-- 1. Hero -->
+<section class="py-section-padding flex flex-col justify-center min-h-[60vh] animate-fade-in">
+<h1 class="font-display text-display text-primary mb-stack-md leading-tight">
+                ほどく、整える。
+            </h1>
+<div class="max-w-3xl border-l border-outline pl-stack-md ml-2 mb-stack-lg">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-sm leading-relaxed">
+                    強み、こだわり、判断、違和感、日々の業務の詰まりを拾い上げ、言葉・導線・仕組みとして使える形に整えます。文章、HP・SNS、問い合わせ導線、簡易的な案内ページ、日々の情報整理、業務改善まで。まずは小さな範囲からご相談いただけます。
                 </p>
-              </div>
-
-              <div class="text-block after">
-                <span class="block-label">整理後の文章</span>
-                <p>
-                  お会計まわりで人の動きが重なりやすく、作業中の物の置き場も不足しがちだったため、
-                  カウンターまわりの使い勝手を見直しました。
+<p class="font-caption text-caption text-secondary">
+                    ※文章だけ、HPまわりだけ、簡易LPだけ、業務整理だけでもご相談いただけます。
                 </p>
-                <p>
-                  現場では、スタッフの動線とお客様から見える位置を確認しながら、
-                  収納の取り方や作業面の広さ、手元が見えにくい立ち上がりの納まりを調整。
-                  店内の雰囲気になじむ素材を選び、日々の作業が自然につながる形に整えています。
-                </p>
-                <p>
-                  見た目だけを新しくするのではなく、働く人の動きとお客様の安心感が両立するように、
-                  細かな使い勝手まで考えた改修です。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <aside class="sample-side" aria-label="文章整理の視点">
-            <div class="sample-points">
-              <h3>整える視点</h3>
-              <ul>
-                <li><b>01</b><span>工事内容だけでなく、依頼の背景から読めるようにする</span></li>
-                <li><b>02</b><span>専門的な判断を、読み手が価値として受け取りやすい言葉へ変える</span></li>
-                <li><b>03</b><span>写真で伝わりにくい配慮や作業意図を補う</span></li>
-                <li><b>04</b><span>大げさな実績表現ではなく、安心して相談できる温度に整える</span></li>
-              </ul>
-            </div>
-            <div class="placeholder">
-              <p>
-                仮画像エリア<br>
-                <span class="small">実際の施工写真や作業中の手元写真に差し替えて使用します。</span>
-              </p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container profile-grid">
-        <div class="profile-card">
-          <div class="profile-mark">
-            <h3>岩永瑞貴</h3>
-            <span class="small">現場価値の文章整理</span>
-          </div>
-        </div>
-        <div>
-          <span class="label">プロフィール</span>
-          <h2>現場側の言葉と、依頼前のお客様の理解の間をつなぎます。</h2>
-          <div class="profile-copy">
-            <p>
-              職人さんや専門工事会社が持つ技術、判断、細かな配慮は、
-              現場を知らないお客様には伝わりにくいことがあります。
-              その「伝わりにくさ」を、文章と情報の順番から整えるサポートをしています。
+</div>
+<div class="delay-200">
+<a class="inline-flex items-center justify-center px-6 py-3 bg-primary text-on-primary font-label-sm text-label-sm hover:bg-primary-container transition-colors duration-200 w-auto group" href="#contact">小さく相談する
+                    <span class="material-symbols-outlined ml-2 text-[16px] group-hover:translate-x-1 transition-transform">east</span>
+</a>
+</div>
+</section>
+<!-- 2. Start Small (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-stack-md">
+                まずは、1つ見せてもらうところから。
+            </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl">全体を直そうとすると時間も費用もかかります。<div class="">まずは「今一番なんとかしたい１か所」から始められます。</div></p><p></p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-stack-sm bg-surface-container-low border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="font-body-md text-on-surface">施工事例文を1本整える</span>
+</div>
+<div class="p-stack-sm bg-surface-container-low border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="font-body-md text-on-surface">サービス紹介文を見直す</span>
+</div>
+<div class="p-stack-sm bg-surface-container-low border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="font-body-md text-on-surface">問い合わせ前の案内文を作る</span>
+</div>
+<div class="p-stack-sm bg-surface-container-low border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="font-body-md text-on-surface">SNSやメールで送れる簡易的な案内ページを作る</span>
+</div>
+<div class="p-stack-sm bg-surface-container-low border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="font-body-md text-on-surface">日々の問い合わせ対応文を整える</span>
+</div>
+<div class="p-stack-sm bg-surface-container-low border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="font-body-md text-on-surface">管理表やチェックリストを整える</span>
+</div>
+</div>
+</section>
+<!-- 3. Problems -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-stack-md">
+                価値はあるのに、うまく伝わっていない。
+            </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl">
+                日々の仕事の中で、こんな状態になっていませんか。
             </p>
-            <p>
-              代わりに大きく見せるのではなく、すでにある価値がきちんと届くように。
-              施工事例文やHP内の案内文を入口に、必要に応じて投稿文、問い合わせ導線、
-              小さな業務整理まで一緒に見直します。
+<ul class="note-list font-body-md text-body-md text-on-surface max-w-3xl mb-stack-lg space-y-3">
+<li class="">ホームページやSNSはあるが、更新が止まっている、もしくは何を書いていいかわからない。</li>
+<li class="">問い合わせは来るが、意図しない客層だったり、毎回同じ説明を繰り返している。</li>
+<li class="">「もっとこうすればいいのに」というアイデアはあるが、形にする時間がない。</li>
+<li class="">外部の制作会社に依頼したが、意図がうまく伝わらず、出来上がったものに違和感がある。</li>
+<li class="">社内の情報が整理されておらず、誰が何を知っているか、どこに何があるかわからない。</li>
+</ul>
+</section>
+<!-- 4. Services (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-stack-lg max-w-3xl leading-relaxed">
+                言葉・導線・業務を、<br class="hidden md:block">必要な範囲から整えます。
+            </h3>
+<div class="space-y-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-3">
+<h4 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest border-b border-outline pb-2 inline-block">A. 言葉の整理</h4>
+</div>
+<div class="md:col-span-9">
+<ul class="note-list font-body-md text-body-md text-on-surface-variant">
+<li class="">サービス紹介・施工事例・プロフィール文の作成</li>
+<li class="">HP・SNS・Googleビジネスプロフィールの原稿整理</li>
+<li class="">FAQ（よくある質問）・問い合わせ前の案内文</li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-3">
+<h4 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest border-b border-outline pb-2 inline-block">B. 導線の整理</h4>
+</div>
+<div class="md:col-span-9">
+<ul class="note-list font-body-md text-body-md text-on-surface-variant">
+<li class="">既存ホームページの構成見直し</li>
+<li class="">簡易LP・案内ページの構成整理</li>
+<li class="">問い合わせフォームや導線の見直し</li>
+<li class="">SNSからWebサイトへの導線整理</li>
+<li class="">既存の写真や事例の見せ方整理</li>
+<li class="">制作会社様に渡すための原稿整理</li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-3">
+<h4 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest border-b border-outline pb-2 inline-block">C. 業務の整理</h4>
+</div>
+<div class="md:col-span-9">
+<ul class="note-list font-body-md text-body-md text-on-surface-variant"><li class="">記録・確認・共有まわりの整理</li><li class="">問い合わせ対応文、定型文の作成</li><li class="">管理表、チェックリストの作成</li><li class="">簡易フォームや入力シートの整理</li><li class="">必要に応じたAI活用や使い方の相談</li></ul>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Simple LP (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding"><h3 class="font-headline-lg text-headline-lg text-primary mb-stack-md">相談前の疑問を減らす。</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl">よく聞かれることや、事前に伝えておきたいことを整理しておくことで、問い合わせ前のお客様が判断しやすくなります。</p><div class="bg-surface-container border border-outline-variant p-stack-md"><div class="grid grid-cols-1 md:grid-cols-3 gap-gutter"><div><span class="material-symbols-outlined text-primary mb-2">speed</span><h5 class="font-body-lg text-on-surface mb-1">今のHPはそのまま</h5><p class="font-caption text-on-surface-variant">既存サイトを壊さず、特定のサービスに特化した紹介ページを別で作れます。</p></div><div><span class="material-symbols-outlined text-primary mb-2">ads_click</span><h5 class="font-body-lg text-on-surface mb-1">「これを見て」と言える</h5><p class="font-caption text-on-surface-variant">SNSやメールでの案内の際、迷わせずに価値を伝えられる着地点になります。</p></div><div><span class="material-symbols-outlined text-primary mb-2">checklist_rtl</span><h5 class="font-body-lg text-on-surface mb-1">相談前の疑問を減らす</h5><p class="font-caption text-on-surface-variant">よく聞かれることや、事前に伝えておきたいことを整理しておくことで、問い合わせ前のお客様が判断しやすくなります。</p></div></div></div></section>
+<!-- 6. Sample -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">
+                文章を整えると、伝わり方はこう変わります。
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="border border-outline-variant p-stack-md bg-surface-bright relative">
+<span class="absolute top-0 left-0 bg-outline-variant text-on-surface-variant font-label-sm px-3 py-1 transform -translate-y-full">Before (元の説明：作業内容のみ)</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 whitespace-pre-line">店舗の一部改修を行いました。指定の素材を使用し、表面を塗装して仕上げています。設置箇所に合わせて加工も行いました。</p>
+</div>
+<div class="border border-primary-fixed p-stack-md bg-surface relative">
+<span class="absolute top-0 left-0 bg-primary-fixed text-on-primary-fixed-variant font-label-sm px-3 py-1 transform -translate-y-full">After (整理後の文章)</span>
+<p class="font-body-md text-body-md text-on-surface mt-2 whitespace-pre-line">小さな店舗のレジまわりで、作業スペースの狭さと見え方にお困りだった事例です。
+既存のカウンターは、日々の作業には少し使いづらく、商品のお渡しや会計時の動きにも窮屈さがありました。
+そこで、実際の作業の流れを確認しながら、高さ・奥行き・収納位置を見直し、周辺もすっきり見えるように整えました。
+見た目の印象だけでなく、日々の作業がしやすいスペースになるよう整えています。
+施工後は、レジまわりがすっきり見えるだけでなく、商品のお渡しもしやすくなり、店舗オーナーやお客様が安心して使える空間になりました。</p>
+</div>
+</div>
+</section>
+<!-- 7. Usage (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">
+                整えた文章の使い道。
+            </h3>
+<div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-gutter mb-stack-md">
+<div class="w-48 p-4 border border-primary bg-primary text-on-primary">
+<p class="font-body-lg">1つの「軸」となる文章</p>
+</div>
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-outline">trending_flat</span>
+</div>
+<div class="grid grid-cols-2 gap-4 flex-1">
+<div class="p-3 bg-surface-container-low border border-outline-variant font-body-md">HPのサービス紹介</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant font-body-md">Googleビジネスプロフィール</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant font-body-md">SNS・発信</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant font-body-md">問い合わせ前のFAQ</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant font-body-md">営業メール・チラシ</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant font-body-md">簡易LP・案内ページ構成</div>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                文章を作るだけでなく、どこで、誰に、どの順番で見せると相談につながりやすいかまで整理します。一度きちんと言葉にすることで、あらゆる場所で使い回せる「資産」になります。
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="flow-price section" id="flow">
-      <div class="container flow-layout">
-        <div>
-          <span class="label">相談の流れ</span>
-          <h2>まずは、手元にある文章や写真からで大丈夫です。</h2>
-          <div class="steps">
-            <div class="step">
-              <span class="step-num">01</span>
-              <div>
-                <h3>メールで状況共有</h3>
-                <p class="small">整理したいページ、施工事例、投稿文などを共有いただき、困っている点を確認します。</p>
-              </div>
+</section>
+<!-- 8. Pricing (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">相談の流れ</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<span class="font-label-sm text-secondary shrink-0">01</span>
+<div>
+<h4 class="font-body-lg text-on-surface">お問い合わせ</h4>
+<p class="font-caption text-on-surface-variant">「ここを直したい」「どうすればいいか」をざっくりと。</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="font-label-sm text-secondary shrink-0">02</span>
+<div>
+<h4 class="font-body-lg text-on-surface">ヒアリング</h4>
+<p class="font-caption text-on-surface-variant">オンラインまたは対面で、現状の詰まりをお聞きします。</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="font-label-sm text-secondary shrink-0">03</span>
+<div>
+<h4 class="font-body-lg text-on-surface">提案・お見積り</h4>
+<p class="font-caption text-on-surface-variant">どこから手をつけるのが効果的か提示します。</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="font-label-sm text-secondary shrink-0">04</span>
+<div>
+<h4 class="font-body-lg text-on-surface">実務実施・納品</h4>
+<p class="font-caption text-on-surface-variant">文章作成や仕組みの構築を進めます。</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">料金について</h3>
+<div class="max-w-3xl border border-outline bg-surface-container-lowest">
+<div class="p-stack-sm border-b border-outline flex justify-between items-center">
+<span class="font-body-md">単発の文章整理</span>
+<span class="font-body-md text-primary">要相談</span>
+</div>
+<div class="p-stack-sm border-b border-outline flex justify-between items-center">
+<span class="font-body-md">施工事例</span>
+<span class="font-body-md text-primary">要相談</span>
+</div>
+<div class="p-stack-sm border-b border-outline flex justify-between items-center">
+<span class="font-body-md">簡易LP構成</span>
+<span class="font-body-md text-primary">要相談</span>
+</div>
+<div class="p-stack-sm border-b border-outline flex justify-between items-center">
+<span class="font-body-md">HP・SNS文面整理</span>
+<span class="font-body-md text-primary">要相談</span>
+</div>
+<div class="p-stack-sm flex justify-between items-center">
+<span class="font-body-md">業務整理</span>
+<span class="font-body-md text-primary">要相談</span>
+</div>
+</div>
+<p class="mt-4 font-caption text-on-surface-variant text-right">※内容により個別にお見積もりいたします。</p>
+</div>
+</div>
+</section>
+<!-- 9. Profile (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding bg-surface-container-low -mx-gutter px-gutter">
+<div class="max-w-container-max-width mx-auto">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">プロフィール</h3>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-4 max-w-3xl">
+<p class="">岩永瑞貴</p><div><br></div><div class="">石材業、飲食、エネルギー事業の現場管理、外構・庭・住宅まわりの現場を経験。</div><p></p>
+<p class="">現場や小さな事業の中で、言葉になっていない価値、散らばった情報、回りにくい業務を整理することに関心を持っています。</p>
+<p class="">現在は、施工事例文やHP・SNSまわりの文章整理を入口に、言葉・導線・業務の整理を小さく支援する活動を始めています。</p>
+</div>
+</div>
+</section>
+<!-- 10. FAQ (Updated) -->
+<section class="py-stack-lg mb-section-padding border-t border-outline pt-section-padding">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg">よくあるご質問</h3>
+<div class="max-w-3xl space-y-4">
+<details class="group border-b border-outline pb-4">
+<summary class="flex justify-between items-center font-body-lg text-on-surface cursor-pointer list-none">
+<span class="">Q. 文章だけの相談も可能ですか？</span>
+<span class="transition group-open:rotate-180"><span class="material-symbols-outlined">expand_more</span></span>
+</summary>
+<div class="text-on-surface-variant font-body-md mt-4 pl-4 border-l-2 border-outline-variant">A. はい、もちろんです。施工事例文1本、プロフィール文のみといった単発の整理も、1本からご相談いただけます。</div>
+</details>
+<details class="group border-b border-outline pb-4">
+<summary class="flex justify-between items-center font-body-lg text-on-surface cursor-pointer list-none">
+<span class="">Q. 簡易LP・案内ページとはどのようなものですか？</span>
+<span class="transition group-open:rotate-180"><span class="material-symbols-outlined">expand_more</span></span>
+</summary>
+<div class="text-on-surface-variant font-body-md mt-4 pl-4 border-l-2 border-outline-variant">
+                        A. 既存のホームページを活かしつつ、特定のサービス内容を1ページで分かりやすく伝えるものです。SNSやメールで「これを見てください」と言える着地点として機能します。
+                    </div>
+</details>
+<details class="group border-b border-outline pb-4">
+<summary class="flex justify-between items-center font-body-lg text-on-surface cursor-pointer list-none">
+<span class="">Q. 既に制作会社と契約していますが、相談できますか？</span>
+<span class="transition group-open:rotate-180"><span class="material-symbols-outlined">expand_more</span></span>
+</summary>
+<div class="text-on-surface-variant font-body-md mt-4 pl-4 border-l-2 border-outline-variant">
+                        A. はい。制作会社様に渡すための「原稿」を整理したり、現場の意図を汲み取った構成案を作成したりすることで、よりスムーズな制作を支援できます。
+                    </div>
+</details>
+<details class="group border-b border-outline pb-4">
+<summary class="flex justify-between items-center font-body-lg text-on-surface cursor-pointer list-none">
+<span class="">Q. 写真しか資料がないのですが大丈夫でしょうか？</span>
+<span class="transition group-open:rotate-180"><span class="material-symbols-outlined">expand_more</span></span>
+</summary>
+<div class="text-on-surface-variant font-body-md mt-4 pl-4 border-l-2 border-outline-variant">
+                        A. 問題ありません。写真を見ながら当時のこだわりや工夫をお聞きし、言葉として書き起こしていきます。
+                    </div>
+</details>
+<details class="group border-b border-outline pb-4">
+<summary class="flex justify-between items-center font-body-lg text-on-surface cursor-pointer list-none">
+<span class="">Q. 何を相談していいか、まだ漠然としているのですが。</span>
+<span class="transition group-open:rotate-180"><span class="material-symbols-outlined">expand_more</span></span>
+</summary>
+<div class="text-on-surface-variant font-body-md mt-4 pl-4 border-l-2 border-outline-variant">
+                        A. ぜひそのままの状態でご相談ください。「うまく回っていない気がする」といった違和感をお聞きし、整理するところから一緒に始めます。
+                    </div>
+</details>
+<details class="group border-b border-outline pb-4">
+<summary class="flex justify-between items-center font-body-lg text-on-surface cursor-pointer list-none">
+<span class="">Q. AI活用や業務整理についても相談できますか？</span>
+<span class="transition group-open:rotate-180"><span class="material-symbols-outlined">expand_more</span></span>
+</summary>
+<div class="text-on-surface-variant font-body-md mt-4 pl-4 border-l-2 border-outline-variant">
+                        A. はい。日々の「記録・確認・共有」の面倒を減らすための簡単なデジタル活用や、チェックリスト作成なども対応可能です。
+                    </div>
+</details>
+</div>
+</section>
+<!-- 11. Contact -->
+<section class="py-section-padding mb-section-padding border-t border-outline text-center flex flex-col items-center justify-center min-h-[40vh]" id="contact">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-stack-md">まずは小さくご相談ください。</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg max-w-xl mx-auto">
+                現状の「ちょっとした違和感」や「伝わらないもどかしさ」をそのままメールでお送りください。内容を拝見し、どのような形でお手伝いできるかご返信いたします。
+            </p>
+<a class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-body-lg text-body-lg hover:bg-primary-container transition-colors duration-200 shadow-sm w-full md:w-auto min-w-[240px]" href="mailto:m.iwanaga.design@outlook.jp">
+<span class="material-symbols-outlined mr-2 text-[20px]">mail</span>
+                メールで相談する
+            </a>
+</section>
+</main>
+<footer class="bg-surface border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter py-stack-md max-w-container-max-width mx-auto gap-stack-sm">
+<div class="font-headline-md text-headline-md text-primary text-sm opacity-80">
+                ほどく、整える。
             </div>
-            <div class="step">
-              <span class="step-num">02</span>
-              <div>
-                <h3>素材確認と進め方の相談</h3>
-                <p class="small">写真やメモの量、公開先、更新頻度に合わせて、無理のない範囲を決めます。</p>
-              </div>
+<div class="font-body-md text-body-md text-on-surface-variant">
+                運営：岩永瑞貴
             </div>
-            <div class="step">
-              <span class="step-num">03</span>
-              <div>
-                <h3>文章整理・確認</h3>
-                <p class="small">読み手に伝わる構成に整えたうえで、現場側のニュアンスがずれていないか確認します。</p>
-              </div>
+<div class="text-secondary font-caption text-caption">
+                © 2026 Mizuki Iwanaga
             </div>
-            <div class="step">
-              <span class="step-num">04</span>
-              <div>
-                <h3>納品・必要に応じた継続相談</h3>
-                <p class="small">単発の文章整理で終えることも、更新や業務整理へ広げることもできます。</p>
-              </div>
-            </div>
-          </div>
-        </div>
+</div>
+</footer>
 
-        <aside class="price-box" aria-label="料金の目安">
-          <span class="label">料金の目安</span>
-          <h2>小さく始められる形でご相談ください。</h2>
-          <ul class="price-list">
-            <li><span>施工事例文の整理</span><span>1本から相談可能</span></li>
-            <li><span>施工事例3本の文章整理</span><span>33,000円〜</span></li>
-            <li><span>継続更新・業務整理</span><span>内容により相談</span></li>
-          </ul>
-          <p class="small lead">
-            内容量、写真やメモの有無、公開先の数によって調整します。
-            まずは必要な範囲だけを確認し、無理に継続契約へ進める前提ではありません。
-          </p>
 
-          <div class="faq" aria-label="よくある質問">
-            <details open>
-              <summary>現場が忙しく、素材をまとめる時間がありません。</summary>
-              <p class="small">
-                箇条書きのメモや写真だけでも始められます。足りない情報は、確認しやすい質問にして整理します。
-              </p>
-            </details>
-            <details>
-              <summary>専門的な工事内容でも相談できますか。</summary>
-              <p class="small">
-                可能です。分からない部分は確認しながら、専門性を崩さずにお客様が理解しやすい文章へ整えます。
-              </p>
-            </details>
-            <details>
-              <summary>AIツールの相談もできますか。</summary>
-              <p class="small">
-                必要に応じたAI活用・導入の相談として扱います。AIを前面に出すのではなく、現場の負担が減る使い方を一緒に考えます。
-              </p>
-            </details>
-          </div>
-        </aside>
-      </div>
-    </section>
 
-    <section class="contact" id="contact">
-      <div class="contact-inner">
-        <span class="label">お問い合わせ</span>
-        <h2>まずは、整理したい文章やページをメールでお送りください。</h2>
-        <p>
-          「どこから手をつければよいか分からない」という段階でも構いません。
-          施工事例1本、HPの一部分、投稿文の見直しなど、小さな相談からお受けします。
-        </p>
-        <!-- 公開前に、宛先メールアドレスを実際の連絡先へ差し替えてください。 -->
-        <a class="button" href="mailto:m.iwanaga.design@outlook.jp?subject=%E7%8F%BE%E5%A0%B4%E4%BE%A1%E5%80%A4%E3%81%AE%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <span class="footer-name">岩永瑞貴｜現場価値の文章整理</span>
-        <p class="small">職人さんや専門工事会社の価値を、お客様に伝わる文章へ。</p>
-      </div>
-      <p class="small">&copy; 岩永瑞貴</p>
-    </div>
-  </footer>
-</body>
-</html>
+</body></html>
